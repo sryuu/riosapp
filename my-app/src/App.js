@@ -8,8 +8,8 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    
     // check if user is logged in or not
-
     const checkIfUser = auth.onAuthStateChanged((user) => {
       if (user) {
         // user is logged in

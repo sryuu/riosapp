@@ -1,4 +1,5 @@
 import {auth} from "../Server/firebase";
+import './Home.css';
 
 function Home () {
     //logout from firebase
@@ -8,8 +9,10 @@ function Home () {
 
     return (
         <div>
-            Home
-            <button onClick={logout}>Logout</button>
+            <div className="Home">
+                Make your AIs by your hands
+            </div>
+            <button className = "logout" onClick={logout}>Logout</button>
         </div>
     )
 }
