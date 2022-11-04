@@ -7,9 +7,25 @@
     text-align: center;
 }
 .ChooseTypeOfAI{
-    display: flex;
+    display: grid;
     justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
 }
 .logout{
     float: right;
+}
+button{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#GenresOfAI{
+    border: 1px solid #ccc;
 }

@@ -11,7 +11,7 @@ function Home () {
         <div className="Home">
                 Make your AIs by your hands
             <div className="ChooseTypeOfAI">
-                <div className="TypeOfImageAI">
+                <div className="TypeOfImageAI" id="GenresOfAI">
                     <h1>Image AI</h1>
                     <button>Image Recognition</button>
                     <button>Object Detection</button>
@@ -20,12 +20,12 @@ function Home () {
                     <button>Text Recognition</button>
 
                 </div>
-                <div className="TypeOfSoundAI">
+                <div className="TypeOfSoundAI" id="GenresOfAI">
                     <h1>Sound AI</h1>
                     <button>Speech Recognition</button>
                     <button>Sound Recognition</button>
                 </div>
-                <div className="TypeOfTextAI">
+                <div className="TypeOfTextAI" id="GenresOfAI">
                     <h1>Text AI</h1>
                     <button>Translate</button>
                     <button>Summarize</button>
@@ -33,7 +33,7 @@ function Home () {
                     <button>Text Classification</button>
                     <button>Chat Bot</button>
                 </div>
-                <div className="TypeOfGANAI">
+                <div className="TypeOfGANAI" id="GenresOfAI">
                     <h1>GAN AI</h1>
                     <button>Text To Image</button>
                     <button>Image To Image</button>
