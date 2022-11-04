@@ -8,9 +8,37 @@ function Home () {
     }
 
     return (
-        <div>
-            <div className="Home">
+        <div className="Home">
                 Make your AIs by your hands
+            <div className="ChooseTypeOfAI">
+                <div className="TypeOfImageAI">
+                    <h1>Image AI</h1>
+                    <button>Image Recognition</button>
+                    <button>Object Detection</button>
+                    <button>Semantic Segmentation</button>
+                    <button>Face Recognition</button>
+                    <button>Text Recognition</button>
+
+                </div>
+                <div className="TypeOfSoundAI">
+                    <h1>Sound AI</h1>
+                    <button>Speech Recognition</button>
+                    <button>Sound Recognition</button>
+                </div>
+                <div className="TypeOfTextAI">
+                    <h1>Text AI</h1>
+                    <button>Translate</button>
+                    <button>Summarize</button>
+                    <button>Text Generation</button>
+                    <button>Text Classification</button>
+                    <button>Chat Bot</button>
+                </div>
+                <div className="TypeOfGANAI">
+                    <h1>GAN AI</h1>
+                    <button>Text To Image</button>
+                    <button>Image To Image</button>
+                    <button>Semantic Segmentation To Image</button>
+                </div>
             </div>
             <button className = "logout" onClick={logout}>Logout</button>
         </div>
