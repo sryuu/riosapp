@@ -1,6 +1,7 @@
 import {auth} from "../Server/firebase";
 import './Home.css';
 
+
 function Home () {
     //logout from firebase
     const logout = () => {
@@ -12,32 +13,28 @@ function Home () {
                 Make your AIs by your hands
             <div className="ChooseTypeOfAI">
                 <div className="TypeOfImageAI" id="GenresOfAI">
-                    <h1>Image AI</h1>
-                    <button>Image Recognition</button>
-                    <button>Object Detection</button>
-                    <button>Semantic Segmentation</button>
-                    <button>Face Recognition</button>
-                    <button>Text Recognition</button>
-
-                </div>
-                <div className="TypeOfSoundAI" id="GenresOfAI">
-                    <h1>Sound AI</h1>
-                    <button>Speech Recognition</button>
-                    <button>Sound Recognition</button>
+                    <h1>Input Image</h1>
+                    <button className="GenresOfAIs">Image Classification</button>
+                    <button className="GenresOfAIs">Object Detection</button>
+                    <button className="GenresOfAIs">Semantic Segmentation</button>
+                    <button className="GenresOfAIs">Face Recognition</button>
+                    <button className="GenresOfAIs">Text Recognition</button>
+                    <button className="GenresOfAIs">Image To Image</button>
+                    <button className="GenresOfAIs">Semantic Segmentation To Image</button>
                 </div>
                 <div className="TypeOfTextAI" id="GenresOfAI">
-                    <h1>Text AI</h1>
-                    <button>Translate</button>
-                    <button>Summarize</button>
-                    <button>Text Generation</button>
-                    <button>Text Classification</button>
-                    <button>Chat Bot</button>
+                    <h1>Input Text</h1>
+                    <button className="GenresOfAIs">Translate</button>
+                    <button className="GenresOfAIs">Summarize</button>
+                    <button className="GenresOfAIs">Text Generation</button>
+                    <button className="GenresOfAIs">Text Classification</button>
+                    <button className="GenresOfAIs">Chat Bot</button>
+                    <button className="GenresOfAIs">Text To Image</button>
                 </div>
-                <div className="TypeOfGANAI" id="GenresOfAI">
-                    <h1>GAN AI</h1>
-                    <button>Text To Image</button>
-                    <button>Image To Image</button>
-                    <button>Semantic Segmentation To Image</button>
+                <div className="TypeOfSoundAI" id="GenresOfAI">
+                    <h1>Input Sound</h1>
+                    <button className="GenresOfAIs">Classification</button>
+                    <button className="GenresOfAIs">Speech To Text</button>
                 </div>
             </div>
             <button className = "logout" onClick={logout}>Logout</button>

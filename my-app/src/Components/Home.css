@@ -6,15 +6,10 @@
     border-radius: 5px;
     text-align: center;
 }
-.ChooseTypeOfAI{
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
-}
 .logout{
     float: right;
 }
-button{
+.GenresOfAIs{
     background-color: #4CAF50;
     border: none;
     color: white;
