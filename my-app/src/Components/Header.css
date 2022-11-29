@@ -3,4 +3,23 @@
   color: #fff;
   padding: 10px;
   text-align: center;
+  display: flex;
+}
+#Header_Middle_Text{
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: large;
+}
+.Header_UserInfo{
+  flex: 1;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+.userImage{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }

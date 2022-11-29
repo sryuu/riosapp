@@ -20,7 +20,6 @@ function App() {
       // user is logged out
       setUser(null);
     }
-    console.log(user);
   })
 
   useEffect(() => {
@@ -29,12 +28,11 @@ function App() {
 
   return (
     <div className="App">
-      
       <BrowserRouter>
           {user 
             ? (
               <>
-              <Header> a</Header>
+              <Header/>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/SpeechToText" element={<SpeechToText />} />
