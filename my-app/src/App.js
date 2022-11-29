@@ -1,6 +1,7 @@
 import './App.css';
 import Login from './Components/Login';
 import Home from './Components/Home';
+import Header from './Components/Header';
 import {useState,useEffect} from 'react';
 import {auth} from './Server/firebase';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -27,21 +28,27 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-        {user 
-          ? (
-            <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/SpeechToText" element={<SpeechToText/>} />
-              <Route path="*" element={<NotFound/>} />
-            </Routes>
-          ) : (
-            <Routes>  
-              <Route path="/" element={<Login/>} />
-            </Routes>
-          )
-        }
-    </BrowserRouter>
+    <div className="App">
+      
+      <BrowserRouter>
+          {user 
+            ? (
+              <>
+              <Header> a</Header>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/SpeechToText" element={<SpeechToText />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </>
+            ) : (
+              <Routes>  
+                <Route path="/" element={<Login/>} />
+              </Routes>
+            )
+          }
+      </BrowserRouter>
+    </div>
   );
 }
 
