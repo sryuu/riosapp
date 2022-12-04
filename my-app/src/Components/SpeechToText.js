@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import './SpeechToText.css';
 
 function SpeechToText () {
   const navigate = useNavigate();
