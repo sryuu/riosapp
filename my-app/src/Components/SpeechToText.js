@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import './SpeechToText.css';
 
@@ -9,7 +8,7 @@ function SpeechToText () {
     <div className="SpeechToText">
       <h1>Speech To Text</h1>
       <div className="SpeechToText_Footer">
-        <Button variant="outlined" onClick={() => navigate('/')}>back to home</Button>
+        <button variant="outlined" onClick={() => navigate('/')}>back to home</button>
       </div>
     </div>
   )

@@ -29,22 +29,22 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-          {user 
-            ? (
-              <>
-              <Header/>
-              <Routes>
+        {user 
+          ? (
+            <>
+              <Routes>  
                 <Route path="/" element={<Home />} />
                 <Route path="/SpeechToText" element={<SpeechToText />} />
-                <Route path="*" element={<NotFound />} />
               </Routes>
             </>
-            ) : (
-              <Routes>  
-                <Route path="/" element={<Login/>} />
+          ) : (
+            <> 
+              <Routes>
+                <Route path="/" element={<Login />} />
               </Routes>
-            )
-          }
+            </>
+          )
+        }
       </BrowserRouter>
     </div>
   );

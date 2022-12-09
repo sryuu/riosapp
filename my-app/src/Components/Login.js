@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {auth} from "../Server/firebase";
 import './Login.css';
-import Button from '@mui/material/Button';
 
 import { 
   GoogleAuthProvider , 
@@ -35,9 +34,9 @@ function Login () {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="Buttons">
-          <Button variant="outlined" onClick= {() => signInWithEmailAndPassword(email, password)}>Login</Button>
-          <Button variant="outlined" onClick= {() => signInWithPopup(auth,provider)}>Login with Google</Button>
+        <div className="buttons">
+          <button variant="outlined" onClick= {() => signInWithEmailAndPassword(email, password)}>Login</button>
+          <button variant="outlined" onClick= {() => signInWithPopup(auth,provider)}>Login with Google</button>
         </div>
       </div>
     </div>
