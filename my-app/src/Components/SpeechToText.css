@@ -3,3 +3,17 @@
   right:50px;
   bottom:50px;
 }
+
+.SpeechToText_Body{
+  display: flex;
+  justify-content: space-around;
+}
+
+.SpeechToText{
+  text-align: center;
+}
+
+.SpeechToText_Body_Microsoft_STT_Azure{
+  display: flex;
+  justify-content: space-around;
+}
