@@ -9,23 +9,26 @@ function FromMic () {
   const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("d2225769ec0b4ead8c0b7af3629ece30","japanwest");
   speechConfig.speechRecognitionLanguage = "ja-JP";
 
-  const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
-
+  var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+  
   const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-
-  recognizer.recognizeOnceAsync(
-    function (result) {
-      setSTTResult(result.text);
-      console.log(result);
-      recognizer.close();
-      recognizer = undefined;
-    },
-    function (err) {
-      console.trace("err - " + err);
-      recognizer.close();
-      recognizer = undefined;
-    }
-  );
+  if (recognizeType) {
+    recognizer.stopContinuousRecognitionAsync()//it will take a while to stop
+  } else {
+    recognizer.recognizeOnceAsync(
+      function (result) {
+        setSTTResult(result.text);
+        console.log(result);
+        recognizer.close();
+        recognizer = undefined;
+      },
+      function (err) {
+        console.trace("err - " + err);
+        recognizer.close();
+        recognizer = undefined;
+      }
+    )
+  }
 
   return (
     <div className="Azure_STT_FromFile">
