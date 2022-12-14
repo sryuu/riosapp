@@ -6,7 +6,9 @@ function FromMic () {
   const [recognizeType, setRecognizeType] = useState(false);
   const [STTResult, setSTTResult] = useState("");
 
-  const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(key,locatiton);
+  //need to hide the key want to replace with "process.env.REACT_APP_AZURE_STT_KEY"
+  const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(process.env.REACT_APP_AZURE_STT_KEY,"japanwest");
+  
   speechConfig.speechRecognitionLanguage = "ja-JP";
 
   var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
