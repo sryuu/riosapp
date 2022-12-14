@@ -6,7 +6,7 @@ function FromMic () {
   const [recognizeType, setRecognizeType] = useState(false);
   const [STTResult, setSTTResult] = useState("");
 
-  const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("d2225769ec0b4ead8c0b7af3629ece30","japanwest");
+  const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(key,locatiton);
   speechConfig.speechRecognitionLanguage = "ja-JP";
 
   var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
