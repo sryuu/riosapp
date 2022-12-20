@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 const SpeechSDK = require("microsoft-cognitiveservices-speech-sdk");
 
@@ -6,31 +6,44 @@ function FromMic () {
   const [recognizeType, setRecognizeType] = useState(false);
   const [STTResult, setSTTResult] = useState("");
 
-  //need to hide the key want to replace with "process.env.REACT_APP_AZURE_STT_KEY"
   const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(process.env.REACT_APP_AZURE_STT_KEY,"japanwest");
-  
   speechConfig.speechRecognitionLanguage = "ja-JP";
+  const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+  const [recognizer,setRecognizer] = useState(new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig));
 
-  var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
-  
-  const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-  if (recognizeType) {
-    recognizer.stopContinuousRecognitionAsync()//it will take a while to stop
-  } else {
-    recognizer.recognizeOnceAsync(
-      function (result) {
-        setSTTResult(result.text);
-        console.log(result);
-        recognizer.close();
-        recognizer = undefined;
-      },
-      function (err) {
-        console.trace("err - " + err);
-        recognizer.close();
-        recognizer = undefined;
-      }
-    )
+  recognizer.recognized = async(s, e) => {
+    if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
+      console.log(`RECOGNIZED: Text=${e.result.text}`);
+      setSTTResult(e.result.text);
+    }
+    else if (e.result.reason === SpeechSDK.ResultReason.NoMatch) {
+      console.log("NOMATCH: Speech could not be recognized.");
+    }
+  };
+
+  const startSTT = async() => {
+    await recognizer.startContinuousRecognitionAsync();
   }
+
+  const stopSTT = async() => {
+    await recognizer.stopContinuousRecognitionAsync();
+    // await recognizer.close();
+  }
+
+  useEffect(() => {
+    console.log(recognizeType);
+    if (recognizeType) {
+      // stopSpeechToText();
+      console.log ("HERE>>>>>>>>>>>>>>>>");
+      stopSTT();
+      console.log ("stop");
+    }
+    else {
+      //startSpeechToText();
+      startSTT();
+      console.log ("start");
+    }
+  }, [recognizeType]);
 
   return (
     <div className="Azure_STT_FromFile">
