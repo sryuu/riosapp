@@ -9,6 +9,7 @@ import NotFound from "./Components/NotFound";
 import SpeechToText from "./Components/SpeechToText";
 import AzureSTTFromFile from "./Azure/STT/FromFile";
 import AzureSTTFromMic from "./Azure/STT/FromMic";
+import ChatBot from "./Components/ChatBot";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/SpeechToText" element={<SpeechToText />} />
                 <Route path="/Azure/STT/FromFile" element={<AzureSTTFromFile />} />
                 <Route path="/Azure/STT/FromMic" element={<AzureSTTFromMic />} />
+                <Route path="/ChatBot" element={<ChatBot />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </>
