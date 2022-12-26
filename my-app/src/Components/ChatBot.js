@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { db,auth} from "../Server/firebase";
-import { collection, addDoc, onSnapshot ,query,orderBy } from "firebase/firestore"; 
+import { collection, addDoc, onSnapshot, query, orderBy, limit } from "firebase/firestore";
+import "./ChatBot.css"; 
 
 function ChatBot () {
   const [text, setText] = useState([]);
   const [messages, setMessages] = useState([]);
-
-  console.log (text);
 
   const addMessageToFirestore = async() => {
     await addDoc(collection(db, "chatbot"), {
@@ -14,13 +13,20 @@ function ChatBot () {
       photoURL: auth.currentUser.photoURL,
       displayName: auth.currentUser.displayName,
       timestamp: Date.now(),
+      userId: auth.currentUser.uid,
     });
     setText("");
   }
 
   const getMessagesFromFirestore = async() => {
-    onSnapshot(query(collection(db, "chatbot"),orderBy("timestamp", "asc")), (querySnapshot) => {
-      const messages = querySnapshot.docs.map((doc) => doc.data());
+    onSnapshot(query(collection(db, "chatbot"),orderBy("timestamp", "desc"),limit(20)), (querySnapshot) => {
+      
+      const messages = querySnapshot.docs.map((doc) => doc.data()).reverse();
+      // change timestamp to date
+      messages.forEach((message) => {
+        message.timestamp = new Date(message.timestamp).toLocaleString();
+      });
+
       setMessages(messages);
     });
   }
@@ -35,14 +41,18 @@ function ChatBot () {
       <div className="ChatBot_Body">
         {messages.map((message) => (
           <div className="ChatBot_Body_Message">
+            <img src={message.photoURL} className="profileImage"/>
             {message.displayName}:
+            {message.timestamp}:
             {message.text}
           </div>
         ))}
       </div>
       <div className="ChatBot_Input">
-        <input type="text" value={text} onChange={(e) => setText(e.target.value)}/>
-        <button onClick={() => addMessageToFirestore()}>Send</button>
+        <input type="text" value={text} placeholder="Type a message" className="ChatBot_Input_Text"
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" ? addMessageToFirestore() : null}
+        />
       </div>
     </div>
   );

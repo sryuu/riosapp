@@ -1,0 +1,18 @@
+.ChatBot_Body{
+  overflow-y: scroll;
+  height: 70vh;
+}
+.profileImage{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.ChatBot_Input_Text{
+  width: 90%;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 15px;
+}
