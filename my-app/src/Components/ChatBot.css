@@ -2,6 +2,14 @@
   overflow-y: scroll;
   height: 70vh;
 }
+.ChatBot_Body_Message{
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.ChatBot_Body_Message_Info{
+  font-size: 12px;
+}
 .profileImage{
   width: 30px;
   height: 30px;

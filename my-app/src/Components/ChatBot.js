@@ -42,9 +42,15 @@ function ChatBot () {
         {messages.map((message) => (
           <div className="ChatBot_Body_Message">
             <img src={message.photoURL} className="profileImage"/>
-            {message.displayName}:
-            {message.timestamp}:
-            {message.text}
+            <div className="ChatBot_Body_Message_layout">
+              <div className="ChatBot_Body_Message_Info">
+                {message.displayName}
+                {message.timestamp}
+              </div>
+              <div className="ChatBot_Body_Message_Text">
+                {message.text}
+              </div>
+            </div>
           </div>
         ))}
       </div>
