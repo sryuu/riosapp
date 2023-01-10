@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db,auth} from "../Server/firebase";
+import { db, auth } from "../Server/firebase";
 import { collection, addDoc, onSnapshot, query, orderBy, limit } from "firebase/firestore";
 import "./ChatBot.css"; 
 
@@ -55,7 +55,11 @@ function ChatBot () {
         ))}
       </div>
       <div className="ChatBot_Input">
-        <input type="text" value={text} placeholder="Type a message" className="ChatBot_Input_Text"
+        <input 
+          type="text" 
+          value={text} 
+          placeholder="Type a message" 
+          className="ChatBot_Input_Text"
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" ? addMessageToFirestore() : null}
         />

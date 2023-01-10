@@ -15,8 +15,8 @@ function SpeechToText () {
         <div className="SpeechToText_Body_Microsoft_STT">
           <h2>Microsoft</h2>
           <div className="SpeechToText_Body_Microsoft_STT_Azure">
-            <button onClick={() => navigate('/Azure/STT/FromFile')}>From File</button>
-            <button onClick={() => navigate('/Azure/STT/FromMic')}>From Mic(1＄/h)</button>
+            <button onClick={() => navigate('/STT/Azure/FromFile')}>From File</button>
+            <button onClick={() => navigate('/STT/Azure/FromMic')}>From Mic(1$/h)</button>
           </div>
         </div>
       </div>

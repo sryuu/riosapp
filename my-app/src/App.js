@@ -6,9 +6,9 @@ import {useState,useEffect} from 'react';
 import {auth} from './Server/firebase';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from "./Components/NotFound";
-import SpeechToText from "./Components/SpeechToText";
-import AzureSTTFromFile from "./Azure/STT/FromFile";
-import AzureSTTFromMic from "./Azure/STT/FromMic";
+import SpeechToText from "./Components/STT/SpeechToText";
+import AzureSTTFromFile from "./Components/STT/Azure/FromFile";
+import AzureSTTFromMic from "./Components/STT/Azure/FromMic";
 import ChatBot from "./Components/ChatBot";
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
               <Routes>  
                 <Route path="/" element={<Home />} />
                 <Route path="/SpeechToText" element={<SpeechToText />} />
-                <Route path="/Azure/STT/FromFile" element={<AzureSTTFromFile />} />
-                <Route path="/Azure/STT/FromMic" element={<AzureSTTFromMic />} />
+                <Route path="/STT/Azure/FromFile" element={<AzureSTTFromFile />} />
+                <Route path="/STT/Azure/FromMic" element={<AzureSTTFromMic />} />
                 <Route path="/ChatBot" element={<ChatBot />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
