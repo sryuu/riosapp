@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { db, auth } from "../Server/firebase";
 import { collection, addDoc, onSnapshot, query, orderBy, limit } from "firebase/firestore";
 import "./ChatBot.css"; 
@@ -6,6 +6,8 @@ import "./ChatBot.css";
 function ChatBot () {
   const [text, setText] = useState([]);
   const [messages, setMessages] = useState([]);
+
+  const messagesEndRef = useRef(null)
 
   const addMessageToFirestore = async() => {
     await addDoc(collection(db, "chatbot"), {
@@ -17,6 +19,14 @@ function ChatBot () {
     });
     setText("");
   }
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages]);
 
   const getMessagesFromFirestore = async() => {
     onSnapshot(query(collection(db, "chatbot"),orderBy("timestamp", "desc"),limit(20)), (querySnapshot) => {
@@ -53,6 +63,7 @@ function ChatBot () {
             </div>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
       <div className="ChatBot_Input">
         <input 
