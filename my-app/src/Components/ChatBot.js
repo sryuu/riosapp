@@ -49,8 +49,8 @@ function ChatBot () {
     <div className="ChatBot">
       <h1>ChatBot</h1>
       <div className="ChatBot_Body">
-        {messages.map((message) => (
-          <div className="ChatBot_Body_Message">
+        {messages.map((message,index) => (
+          <div className="ChatBot_Body_Message" key={index}>
             <img src={message.photoURL} className="profileImage"/>
             <div className="ChatBot_Body_Message_layout">
               <div className="ChatBot_Body_Message_Info">
